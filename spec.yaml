@@ -1,0 +1,16 @@
+name: india-satishcdn-proxy
+region: blr
+services:
+  - name: vless-proxy
+    environment_slug: node-js
+    instance_size_slug: basic-xxs
+    instance_count: 1
+    source_dir: .
+    build_command: "npm install"
+    run_command: "npm start"
+    http_port: 8080
+    routes:
+      - path: /
+    envs:
+      - key: NODE_ENV
+        value: production
